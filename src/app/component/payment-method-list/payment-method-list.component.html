@@ -1,0 +1,18 @@
+<h3>{{titulo}}</h3>
+
+<table border="1">
+  <tr>
+    <td>payId</td>
+    <td>Name</td>
+    <td>Opciones</td>
+  </tr>
+
+  <tr *ngFor="let paymentMethod of paymentMethods">
+    <td>{{paymentMethod.payId}}</td>
+    <td>{{paymentMethod.name}}</td>
+    <td>
+      <a [routerLink]="['/paymentMethod-edit', paymentMethod.payId]"  >Editar</a>
+    </td>
+  </tr>
+
+</table>

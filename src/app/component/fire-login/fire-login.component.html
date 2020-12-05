@@ -1,0 +1,12 @@
+<h1>Login User</h1>
+
+
+<h3>{{msg}}</h3>
+<div>
+    <input [(ngModel)]="email" placeholder="Email" type="text" /><br />
+    <input [(ngModel)]="password" placeholder="Password" type="password" /><br />
+    <button (click)="login()">Sign In</button>
+    <button routerLink="/firelogin">Cancelar</button>
+    <button routerLink="/register">Register</button>
+    <button routerLink="/reset-password">Reset Password</button>
+</div>

@@ -1,0 +1,18 @@
+<h3>{{titulo}}</h3>
+
+<table border="1">
+  <tr>
+    <td>ProID</td>
+    <td>Price</td>
+    <td>Opciones</td>
+  </tr>
+
+  <tr *ngFor="let product of products">
+    <td>{{product.proId}}</td>
+    <td>{{product.price}}</td>
+    <td>
+      <a [routerLink]="['/product-edit', product.proId]" >Editar</a>
+    </td>
+  </tr>
+
+</table>
