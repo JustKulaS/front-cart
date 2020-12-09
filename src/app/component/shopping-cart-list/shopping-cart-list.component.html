@@ -1,0 +1,16 @@
+<h3>{{titulo}}</h3>
+
+<table border="1">
+  <tr>
+    <td>Producto</td>
+    <td>items</td>
+    <td>Total</td>
+  </tr>
+
+  <tr *ngFor="let shoppingCart of shoppingCarts">
+    <td>{{shoppingCart.proId}}</td>
+    <td>{{shoppingCart.items}}</td>
+    <td>{{shoppingCart.total}}</td>
+  </tr>
+
+</table>

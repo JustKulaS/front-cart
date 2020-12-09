@@ -1,0 +1,13 @@
+<h1>cantidad que desea del producto</h1>
+
+<div *ngIf="showMsg">
+    <p *ngFor="let msg of messages">
+        {{msg}}
+    </p>
+</div>
+
+<div>
+    <input [(ngModel)]="cart.quantity" placeholder="Cantidad" type="text" /><br />
+    <button (click)="addProduct()">agregar</button>
+    <button routerLink="/home">volver</button>
+</div>

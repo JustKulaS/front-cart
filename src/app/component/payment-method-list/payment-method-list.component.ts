@@ -13,6 +13,9 @@ export class PaymentMethodListComponent implements OnInit {
   public titulo:String='metodos de pago';
   public paymentMethods:PaymentMethod[];
 
+  public showMsg:boolean=false;
+  public messages:string[];
+
   constructor(public paymentMethodService:PaymentMethodService) { }
 
   ngOnInit(): void {
@@ -26,5 +29,18 @@ export class PaymentMethodListComponent implements OnInit {
       console.error(error);
     });
   }
+
+  public delete(payId:number):void{
+    this.messages=[""];
+    this.paymentMethodService.delete(payId).subscribe(ok=>{
+      this.showMsg=true;
+      this.messages[0]="El customer se borro correctamente";
+      this.findAll();
+    },err=>{
+      this.showMsg=true;
+      this.messages=err.error.error;
+    });
+  }
+
 
 }

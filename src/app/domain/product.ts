@@ -7,7 +7,7 @@ export class product{
         public enable:String,
         public image:String,
         public name:String,
-        public price:BigInteger
+        public price:number
     ){}
 
 }

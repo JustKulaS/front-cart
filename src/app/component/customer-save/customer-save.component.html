@@ -1,3 +1,7 @@
+<h1>Datos Adicionales</h1>
+<h3>por favor llenar todo los campos de caracter obligatorio</h3>
+
+
 <div *ngIf="showMsg">
     <p *ngFor="let msg of messages">
         {{msg}}
@@ -5,17 +9,11 @@
 </div>
 
 <form #customerForm="ngForm">
-    <input type="email" name="email" id="email" #email placeholder="Email" [(ngModel)]="customer.email" /><br />
     <input type="text" name="name" id="name" #name placeholder="Name" [(ngModel)]="customer.name" /><br />
     <input type="text" name="address" id="adress" #address placeholder="Address" [(ngModel)]="customer.address" /><br />
     <input type="text" name="phone" id="phone" #phone placeholder="Phone" [(ngModel)]="customer.phone" /><br />
-    <input type="text" name="token" id="token" #token placeholder="Token" [(ngModel)]="customer.token" /><br />
-    <select name="enable" id="enable"  #enable [(ngModel)]="customer.enable">
-        <option *ngFor="let enable of enables" [value]="enable.id">
-            {{enable.name}}
-        </option>
-    </select>
-    <br/>
-    <button (click)="save()">Save</button><br/>
+
+ 
+    <button (click)="save()">Guardar</button><br/>
     <button routerLink="/customer-list">Cancel</button>  
 </form>

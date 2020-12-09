@@ -2,14 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { product } from '../domain/product';
+import { ShoppingProduct } from '../domain/shopping-product';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class ShoppingProductServiceService {
 
-  private url:string=environment.apiUrl+'api/product/';
+  private url:string=environment.apiUrl+'api/shopping-product/';
   
 
 
@@ -26,24 +26,23 @@ export class ProductService {
     return this.httpClient.get(this.url+'findAll',{headers:headers});
   }
 
-  public findById(proId:string):Observable<any>{
+  public findById(shprId:string):Observable<any>{
     let headers=this.createTokenHeader();
-    return this.httpClient.get(this.url+'findById/'+proId, {headers:headers});
+    return this.httpClient.get(this.url+'findById/'+shprId, {headers:headers});
   }
 
-  public save(product:product):Observable<any>{
+  public save(shoppingProduct:ShoppingProduct):Observable<any>{
     let headers=this.createTokenHeader();
-    return this.httpClient.post(this.url+'save',product, {headers:headers});
+    return this.httpClient.post(this.url+'save',shoppingProduct, {headers:headers});
   }
 
-  public update(product:product):Observable<any>{
+  public update(shoppingProduct:ShoppingProduct):Observable<any>{
     let headers=this.createTokenHeader();
-    return this.httpClient.put(this.url+'update',product, {headers:headers});
+    return this.httpClient.put(this.url+'update',shoppingProduct, {headers:headers});
   }
 
-  public delete(proId:string):Observable<any>{
+  public delete(shprId:string):Observable<any>{
     let headers=this.createTokenHeader();
-    return this.httpClient.delete(this.url+'delete/'+proId, {headers:headers});
+    return this.httpClient.delete(this.url+'delete/'+shprId, {headers:headers});
   }
-
 }

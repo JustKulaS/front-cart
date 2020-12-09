@@ -1,1 +1,21 @@
-<p>payment-method-edit works!</p>
+<div *ngIf="paymentMethod">
+    <div *ngIf="showMsg">
+        <p *ngFor="let msg of messages">
+            {{msg}}
+        </p>
+    </div>
+
+    <form #customerForm="ngForm">
+        <input readonly type="text" name="payId" id="payId" #email placeholder="payId" [(ngModel)]="paymentMethod.payId" /><br />
+        <select name="enable" id="enable" #enable [(ngModel)]="paymentMethod.enable">
+            <option *ngFor="let enable of enables" [value]="enable.id">
+                {{enable.name}}
+            </option>
+        </select>
+        <input type="text" name="name" id="name" #name placeholder="Name" [(ngModel)]="paymentMethod.name" /><br />
+
+        <button (click)="update()">Edit</button>
+        <button (click)="delete()">Delete</button>
+        <button routerLink="/paymentMethod-list">Cancel</button>
+    </form>
+</div>

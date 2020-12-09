@@ -23,9 +23,15 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { RegisterComponent } from './component/register/register.component';
-import { HomeComponent } from './component/home/home.component';
+import { LogOutComponent } from './component/logout/logout.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 import { FireLoginComponent } from './component/fire-login/fire-login.component';
+import { HomeComponent } from './component/home/home.component';
+import { ShoppingCartListComponent } from './component/shopping-cart-list/shopping-cart-list.component';
+import { ShoppingCartSaveComponent } from './component/shopping-cart-save/shopping-cart-save.component';
+import { ShoppingProductSaveComponent } from './component/shopping-product-save/shopping-product-save.component';
+import { ShoppingProductEditComponent } from './component/shopping-product-edit/shopping-product-edit.component';
+import { ShoppingProductListComponent } from './component/shopping-product-list/shopping-product-list.component';
 
 
 @NgModule({
@@ -41,9 +47,15 @@ import { FireLoginComponent } from './component/fire-login/fire-login.component'
     ProductEditComponent,
     PaymentMethodEditComponent,
     RegisterComponent,
-    HomeComponent,
+    LogOutComponent,
     ResetPasswordComponent,
-    FireLoginComponent
+    FireLoginComponent,
+    HomeComponent,
+    ShoppingCartListComponent,
+    ShoppingCartSaveComponent,
+    ShoppingProductSaveComponent,
+    ShoppingProductEditComponent,
+    ShoppingProductListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 export class PaymentMethod{
 
     constructor(
-        public payId:BigInteger,
+        public payId:number,
         public enable:String,
         public name:string
     ){}

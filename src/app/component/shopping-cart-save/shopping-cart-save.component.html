@@ -1,0 +1,29 @@
+<h1>Informacion de pago</h1>
+<h3>por favor llenar todo los campos de caracter obligatorio</h3>
+
+
+<div *ngIf="showMsg">
+    <p *ngFor="let msg of messages">
+        {{msg}}
+    </p>
+</div>
+
+<form #customerForm="ngForm">
+    <input type="text" name="direccion" id="direccion" #address placeholder="Direccion de domicilio" [(ngModel)]="shoppingCart.address" /><br />
+    <input type="text" name="cardNumber" id="cardNumber" #cardnumber placeholder="Numero de la tarjeta" [(ngModel)]="shoppingCart.cardNumber"/><br />
+    <input type="text" name="date" id="date" #date placeholder="fecha" [(ngModel)]="shoppingCart.date" /><br />
+    <select type="enable" name="enable" id="enable" #enable [(ngModel)]="shoppingCart.enable">
+        <option *ngFor="let enable of enables" [value]="enable.id">
+            {{enable.name}}
+        </option>
+    </select>
+    <select type="paymentMethod" name="paymentMethod" id="paymentMethod" #paymentMethod [(ngModel)]="shoppingCart.payId">
+        <option *ngFor="let paymentMethod of paymentMethods" [value]="paymentMethod.payId">
+            {{paymentMethod.name}}
+        </option>
+    </select>
+ 
+    <button (click)="update()">comprar</button><br/>
+    <button routerLink="/home">Volver</button>  
+    <button routerLink="/home">Cancel</button>  
+</form>

@@ -1,0 +1,17 @@
+<h3>Historial de compras</h3>
+
+<table border="1">
+  <tr>
+    <td>direccion</td>
+    <td>cantidad</td>
+    <td>Total</td>
+    <td>Fecha</td>
+  </tr>
+  <tr *ngFor="let shoppingCart of shoppingCarts">
+    <td>{{shoppingCart.address}}</td>
+    <td>{{shoppingCart.items}}</td>
+    <td>{{shoppingCart.total}}</td>
+    <td>{{shoppingCart.date}}</td>
+  </tr>
+</table>
+<button routerLink="/home">volver</button> 

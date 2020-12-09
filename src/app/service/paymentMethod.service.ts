@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -15,24 +15,36 @@ export class PaymentMethodService {
 
   constructor(public httpClient:HttpClient) {}
 
-  public findAll():Observable<any>{
-    return this.httpClient.get(this.url+'findAll');
+   
+  createTokenHeader():HttpHeaders{
+    let token=localStorage.getItem('token');
+    let headers=new HttpHeaders({'Authorization':token});
+    return headers;
   }
 
-  public findById(payId:BigInteger):Observable<any>{
-    return this.httpClient.get(this.url+'findById/'+payId);
+  public findAll():Observable<any>{
+    let headers=this.createTokenHeader();
+    return this.httpClient.get(this.url+'findAll', {headers:headers});
+  }
+
+  public findById(payId:number):Observable<any>{
+    let headers=this.createTokenHeader();
+    return this.httpClient.get(this.url+'findById/'+payId, {headers:headers});
   }
 
   public save(paymentMethod:PaymentMethod):Observable<any>{
-    return this.httpClient.post(this.url+'save',paymentMethod)
+    let headers=this.createTokenHeader();
+    return this.httpClient.post(this.url+'save',paymentMethod, {headers:headers})
   }
 
   public update(paymentMethod:PaymentMethod):Observable<any>{
-    return this.httpClient.put(this.url+'update',paymentMethod)
+    let headers=this.createTokenHeader();
+    return this.httpClient.put(this.url+'update',paymentMethod, {headers:headers})
   }
 
-  public delete(payId:BigInteger):Observable<any>{
-    return this.httpClient.delete(this.url+'delete/'+payId);
+  public delete(payId:number):Observable<any>{
+    let headers=this.createTokenHeader();
+    return this.httpClient.delete(this.url+'delete/'+payId, {headers:headers});
   }
 
 }

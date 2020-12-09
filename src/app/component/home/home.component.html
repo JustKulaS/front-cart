@@ -1,3 +1,107 @@
-<h1>Home</h1>
+<style> 
+.upperBody{
+    display: flex;
+    height: 50px;
+    width: 1535px;
+    border-color: black;
+    border: 1px solid black;
+    margin-top: -22px;
+    
+}
 
-<button (click)="signOut()">SignOut</button>
+.navegacion{
+    flex:auto;
+    background-color:black;
+    text-align: center;
+}
+.navegacion:hover{
+    color:white;
+    opacity: 0.5;
+}
+a{
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+}
+.decorationBody{
+    width: 1535px;
+    height: 550px;
+    background-color: red;
+    display: flex;
+    
+}
+
+.footer{
+    width: 1535px;
+    height: 50px;
+    background-color: black;
+}
+
+.products{
+    width: 150px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    color: white;
+    margin-left: 2%;
+    margin-top: 2%;
+    background-color:black;
+}
+
+.search{
+    width: 1535px;
+    height: 75px;
+    
+}
+
+</style>
+
+<div class="search">
+    <input [(ngModel)]="name" placeholder="Nombre del producto" type="text" style="margin-left: 23px;" /><br />
+    <button (click)="findProduct()" style="margin-left: 23px;">Buscar</button>
+</div>
+
+<div class="upperBody">
+    <div *ngIf="isvalid();else admin">
+    <div class="upperBody" style="margin-top: 0.1px;">
+        <div class=navegacion>
+            <a (click)="refresh()">Productos</a>
+        </div>
+        <div class=navegacion>
+            <a [routerLink]="['/shopping-product-list']" >Carrito de compras</a>
+        </div>
+        <div class=navegacion>
+            <a [routerLink]="['/history']">Historial de compras</a>
+        </div>
+    </div>
+    </div>
+</div>
+<ng-template #admin>
+    <div class=navegacion>
+        <a routerLink="/customer-list">editar clientes</a>
+    </div>
+    <div class=navegacion>
+        <a routerLink="/product-save">agregar productos</a>
+    </div>
+    <div class=navegacion>
+        <a routerLink="/product-list">editar productos</a>
+    </div>
+    <div class=navegacion>
+        <a routerLink="/paymentMethod-save">agregar nuevo metodo de pago</a>
+    </div>
+    <div class=navegacion>
+        <a routerLink="/paymentMethod-list">editar metodo de pago</a>
+    </div>
+</ng-template>
+<div class="decorationBody">
+<div *ngFor="let product of products" style="margin-left: 20px; margin-top: 20px;">
+    <div class="products" >
+        <img src={{product.image}} style="width: 150px; height: 150px;">
+        <a>{{product.name}}</a>
+        <a>${{product.price}}</a> 
+        <button (click)='addProduct()'>Agregar</button>  
+    </div>
+</div>
+</div>
+<div class="footer"></div>

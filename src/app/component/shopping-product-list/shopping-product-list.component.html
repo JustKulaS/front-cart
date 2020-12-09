@@ -1,0 +1,19 @@
+<h3>{{titulo}}</h3>
+
+<table border="1">
+  <tr>
+    <td>id del producto</td>
+    <td>precio</td>
+    <td>cantidad</td>
+    <td>Total</td>
+  </tr>
+
+  <tr *ngFor="let shoppingProduct of shoppingProducts">
+    <td>{{shoppingProduct.proName}}</td>
+    <td>{{shoppingProduct.proPrice}}</td>
+    <td>{{shoppingProduct.quantity}}</td>
+    <td>{{shoppingProduct.total}}</td>
+  </tr>
+</table>
+<button (click)="buy()">comprar</button>
+<button (click)="back()">volver</button>

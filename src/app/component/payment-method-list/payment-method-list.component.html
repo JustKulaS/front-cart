@@ -12,7 +12,8 @@
     <td>{{paymentMethod.name}}</td>
     <td>
       <a [routerLink]="['/paymentMethod-edit', paymentMethod.payId]"  >Editar</a>
+      <button (click)="delete(paymentMethod.payId)">Borrar</button>
     </td>
   </tr>
-
+  <button routerLink="/home">volver</button>
 </table>

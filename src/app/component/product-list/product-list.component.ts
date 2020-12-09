@@ -12,6 +12,9 @@ export class ProductListComponent implements OnInit {
   public titulo:string='Lista de productos';
   public products:product[];
 
+  public showMsg:boolean=false;
+  public messages:string[];
+
   constructor(public productService:ProductService) { }
 
   ngOnInit(): void {
@@ -25,4 +28,17 @@ export class ProductListComponent implements OnInit {
       console.error(error);
     });
   }
+
+  public delete(proId:string):void{
+    this.messages=[""];
+    this.productService.delete(proId).subscribe(ok=>{
+      this.showMsg=true;
+      this.messages[0]="El customer se borro correctamente";
+      this.findAll();
+    },err=>{
+      this.showMsg=true;
+      this.messages=err.error.error;
+    });
+  }
+
 }

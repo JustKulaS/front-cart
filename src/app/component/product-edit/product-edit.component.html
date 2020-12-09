@@ -1,1 +1,24 @@
-<p>product-edit works!</p>
+<div *ngIf="product">
+    <div *ngIf="showMsg">
+        <p *ngFor="let msg of messages">
+            {{msg}}
+        </p>
+    </div>
+
+    <form #customerForm="ngForm">
+        <input readonly type="text" name="proId" id="proId" #email placeholder="proId" [(ngModel)]="product.proId" /><br />
+        <input type="text" name="detail" id="detail" #name placeholder="detail" [(ngModel)]="product.detail" /><br />
+        <select name="enable" id="enable" #enable [(ngModel)]="product.enable">
+            <option *ngFor="let enable of enables" [value]="enable.id">
+                {{enable.name}}
+            </option>
+        </select>
+        <input type="text" name="image" id="image" #name placeholder="image" [(ngModel)]="product.image" /><br />
+        <input type="text" name="name" id="name" #name placeholder="Name" [(ngModel)]="product.name" /><br />
+        <input type="text" name="price" id="price" #name placeholder="Price" [(ngModel)]="product.price" /><br />
+
+        <button (click)="update()">Edit</button>
+        <button (click)="delete()">Delete</button>
+        <button routerLink="/product-list">Cancel</button>
+    </form>
+</div>
