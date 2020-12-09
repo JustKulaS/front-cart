@@ -1,5 +1,11 @@
 <h3>{{titulo}}</h3>
 
+<div *ngIf="showMsg">
+  <p *ngFor="let msg of messages">
+      {{msg}}
+  </p>
+</div>
+
 <table border="1">
   <tr>
     <td>id del producto</td>
@@ -13,7 +19,9 @@
     <td>{{shoppingProduct.proPrice}}</td>
     <td>{{shoppingProduct.quantity}}</td>
     <td>{{shoppingProduct.total}}</td>
+    <!--<td><button (click)="delete(product.proId)">disminuir Unidad</button></td>-->
   </tr>
 </table>
+<button (click)="clear()">limpiar carrito</button>
 <button (click)="buy()">comprar</button>
 <button (click)="back()">volver</button>
